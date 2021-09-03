@@ -21,12 +21,16 @@
         />
 
     <SearchView
+        android:queryHint="@string/search"
+        android:theme="@style/ThemeOverlay.search"
+        android:iconifiedByDefault="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background"
         android:layout_margin="@dimen/_10sdp"
         app:layout_constraintTop_toBottomOf="@+id/mynotes"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/search_view"
         android:searchIcon="@drawable/ic_search"
         />
@@ -41,6 +45,7 @@
         />
 
     <LinearLayout
+        android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -74,5 +79,17 @@
             />
 
         </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBlue"
+        android:tint="@color/colorWhite"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_add"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
