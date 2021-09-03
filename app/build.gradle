@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -29,6 +30,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -40,4 +44,29 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+
+    //Additional Dependencies
+    //Material Design
+    implementation 'com.google.android.material:material:1.2.1'
+
+    //Circle Image View
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //Scalable unit text size
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+
+    //Scalable unit size
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
+    //Room database
+    def room_version = "2.3.0"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    implementation("androidx.room:room-runtime:$room_version")
+
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$room_version")
+
+
 }
