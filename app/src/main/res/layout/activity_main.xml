@@ -59,24 +59,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_check"
-            android:int="@color/colorWhite"
-            />
+            app:tint="@color/colorWhite" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_image"
-            android:int="@color/colorWhite"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            />
+            app:tint="@color/colorWhite" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_link"
-            android:int="@color/colorWhite"
-            />
+            app:tint="@color/colorWhite" />
 
         </LinearLayout>
 
