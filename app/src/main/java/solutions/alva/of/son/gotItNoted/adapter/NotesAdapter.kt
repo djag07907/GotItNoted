@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.item_rv_notes.view.*
 import solutions.alva.of.son.gotItNoted.R
 import solutions.alva.of.son.gotItNoted.entities.Notes
 
-class NotesAdapter(val arrList : ArrayList<Notes>) :
+class NotesAdapter(val arrList : List<Notes>) :
         RecyclerView.Adapter<NotesAdapter.NotesViewHolder>(){
 
 
