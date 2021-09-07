@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_create_note.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CreateNoteFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,4 +32,24 @@ class CreateNoteFragment : Fragment() {
                 }
             }
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val simpledateform = SimpleDateFormat("dd/M/yyyy")
+        val currentDate = simpledateform.format(Date())
+
+        tvDateTime.text = currentDate
+
+        imgDone.setOnClickListener{
+            //save note
+            saveNote()
+        }
+
+        imgOnBack.setOnClickListener{
+
+        }
+    }
+
+
+
 }

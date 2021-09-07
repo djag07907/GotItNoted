@@ -7,86 +7,15 @@
     android:background="@color/colorDarkBlack"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/mynotes"
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/_15sdp"
-        android:text="@string/notes"
-        android:paddingStart="@dimen/_10sdp"
-        android:paddingTop="@dimen/_10sdp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/colorWhite"
-        />
-
-    <SearchView
-        android:queryHint="@string/search"
-        android:theme="@style/ThemeOverlay.search"
-        android:iconifiedByDefault="false"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/background"
-        android:layout_margin="@dimen/_10sdp"
-        app:layout_constraintTop_toBottomOf="@+id/mynotes"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/search_view"
-        android:searchIcon="@drawable/ic_search"
-        />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp"
-        app:layout_constraintTop_toBottomOf="@+id/search_view"
-        app:layout_constraintStart_toStartOf="parent"
-        android:id="@+id/recycler_view"
-        />
-
-    <LinearLayout
-        android:id="@+id/layout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/colorPrimaryDark"
-        android:orientation="horizontal"
-        android:padding="@dimen/_10sdp">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_check"
-            app:tint="@color/colorWhite" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_image"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            app:tint="@color/colorWhite" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_link"
-            app:tint="@color/colorWhite" />
-
-        </LinearLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBlue"
-        android:tint="@color/colorWhite"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_20sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/ic_add"
+        android:id="@+id/frame_layout"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

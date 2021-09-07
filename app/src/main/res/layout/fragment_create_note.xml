@@ -48,12 +48,31 @@
         android:ellipsize="end"
         />
 
+    <TextView
+        android:id="@+id/tvDateTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:paddingStart="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/CNoteTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="@dimen/_8ssp"
+        android:textColor="@color/colorGrey"
+        android:textColorHint="@color/colorGrey"
+        android:maxLines="1"
+        android:ellipsize="end"
+        />
+
     <LinearLayout
         android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
-        app:layout_constraintTop_toBottomOf="@+id/CNoteTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvDateTime"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="horizontal">
