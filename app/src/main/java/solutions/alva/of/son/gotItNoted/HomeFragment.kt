@@ -6,11 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_create_note.*
-import solutions.alva.of.son.gotItNoted.entities.Notes
-import solutions.alva.of.son.gotItNoted.database.NotesDatabase
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -42,7 +39,7 @@ class HomeFragment : Fragment() {
     }
 
     fun replaceFragment(fragment: Fragment, istransition:Boolean){
-        val fragmentTransition = activity!!.supportFragmentManager.beginTransaction()
+        val fragmentTransition = requireActivity().supportFragmentManager.beginTransaction()
 
         if (istransition){
             fragmentTransition.setCustomAnimations(android.R.anim.slide_out_right,android.R.anim.slide_in_left)

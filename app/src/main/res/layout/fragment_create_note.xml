@@ -17,7 +17,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:src="@drawable/ic_back"
-        app:tint="@color/colorWhite" />
+        app:tint="@color/colorWhite"
+        />
 
     <ImageView
         android:id="@+id/imgDone"
@@ -46,6 +47,8 @@
         android:hint="@string/notes_title"
         android:maxLines="1"
         android:ellipsize="end"
+        android:background="@null"
+        android:inputType="text"
         />
 
     <TextView
@@ -65,6 +68,7 @@
         android:textColorHint="@color/colorGrey"
         android:maxLines="1"
         android:ellipsize="end"
+        android:background="@null"
         />
 
     <LinearLayout
@@ -98,6 +102,8 @@
             android:hint="@string/notes_subtitle"
             android:maxLines="1"
             android:ellipsize="end"
+            android:background="@null"
+            android:inputType="text"
             />
 
     </LinearLayout>
@@ -116,6 +122,7 @@
         android:textColorHint="@color/colorGrey"
         android:inputType="textMultiLine"
         android:hint="@string/notes_description"
+        android:background="@null"
         />
 
 
