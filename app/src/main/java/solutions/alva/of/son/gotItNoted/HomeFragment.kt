@@ -5,13 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_create_note.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.launch
 import solutions.alva.of.son.gotItNoted.adapter.NotesAdapter
 import solutions.alva.of.son.gotItNoted.database.NotesDatabase
+import solutions.alva.of.son.gotItNoted.entities.Notes
+import java.util.*
+import kotlin.collections.ArrayList
 
 class HomeFragment : BaseFragment() {
+    var arrNotes = ArrayList<Notes>()
+    var notesAdapter: NotesAdapter = NotesAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -23,7 +31,10 @@ class HomeFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
+
         return inflater.inflate(R.layout.fragment_home, container, false)
+
     }
 
     companion object {
@@ -45,24 +56,69 @@ class HomeFragment : BaseFragment() {
         launch {
             context?.let {
                 var notes = NotesDatabase.getDatabase(it).noteDao().getAllNotes()
-                recycler_view.adapter = NotesAdapter(notes)
+                notesAdapter!!.setData(notes)
+                arrNotes = notes as ArrayList<Notes>
+                recycler_view.adapter = notesAdapter
             }
         }
 
+        notesAdapter!!.setOnClickListener(onClicked)
+
         btnCreateNote.setOnClickListener{
-            replaceFragment(CreateNoteFragment.newInstance(), true)
+            replaceFragment(CreateNoteFragment.newInstance(), false)
         }
     }
 
-    fun replaceFragment(fragment: Fragment, istransition:Boolean){
-        val fragmentTransition = requireActivity().supportFragmentManager.beginTransaction()
-
-        if (istransition){
-            fragmentTransition.setCustomAnimations(android.R.anim.slide_out_right,android.R.anim.slide_in_left)
+    search_view.setOnQueryTextListener( object : SearchView.OnQueryTextListener{
+        override fun onQueryTextSubmit(p0: String?): Boolean {
+            return true
         }
-        fragmentTransition.replace(R.id.frame_layout,fragment).addToBackStack(fragment.javaClass.simpleName)
 
+        override fun onQueryTextChange(p0: String?): Boolean {
+
+            var tempArr = ArrayList<Notes>()
+
+            for (arr in arrNotes){
+                if (arr.title!!.toLowerCase(Locale.getDefault()).contains(p0.toString())){
+                    tempArr.add(arr)
+                }
+            }
+
+            notesAdapter.setData(tempArr)
+            notesAdapter.notifyDataSetChanged()
+            return true
+        }
+
+    })
+
+
+}
+
+
+private val onClicked = object :NotesAdapter.OnItemClickListener{
+    override fun onClicked(notesId: Int) {
+
+
+        var fragment :Fragment
+        var bundle = Bundle()
+        bundle.putInt("noteId",notesId)
+        fragment = CreateNoteFragment.newInstance()
+        fragment.arguments = bundle
+
+        replaceFragment(fragment,false)
     }
+
+}
+
+
+fun replaceFragment(fragment:Fragment, istransition:Boolean){
+    val fragmentTransition = activity!!.supportFragmentManager.beginTransaction()
+
+    if (istransition){
+        fragmentTransition.setCustomAnimations(android.R.anim.slide_out_right,android.R.anim.slide_in_left)
+    }
+    fragmentTransition.replace(R.id.frame_layout,fragment).addToBackStack(fragment.javaClass.simpleName).commit()
+}
 
 
 }

@@ -74,4 +74,10 @@ dependencies {
     //coroutines core
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1'
 
+    //Easy permissions
+    implementation 'pub.devrel:easypermissions:3.0.0'
+
+    //crop img library
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+
 }

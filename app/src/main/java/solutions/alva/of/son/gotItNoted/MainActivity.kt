@@ -9,12 +9,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        replaceFragment(HomeFragment.newInstance(), true)
+        replaceFragment(HomeFragment.newInstance(), false)
 
     }
 
 
-    fun replaceFragment(fragment: Fragment, istransition:Boolean){
+    fun replaceFragment(fragment:Fragment, istransition:Boolean){
         val fragmentTransition = supportFragmentManager.beginTransaction()
 
         if (istransition){
@@ -23,5 +23,11 @@ class MainActivity : AppCompatActivity() {
         fragmentTransition.replace(R.id.frame_layout,fragment).addToBackStack(fragment.javaClass.simpleName)
     }
 
-
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val fragments = supportFragmentManager.fragments
+        if (fragments.size == 0){
+            finish()
+        }
+    }
 }
