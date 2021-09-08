@@ -2,7 +2,6 @@ package solutions.alva.of.son.gotItNoted.adapter
 
 import android.graphics.BitmapFactory
 import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,7 +30,7 @@ class NotesAdapter() :
         arrList = arrNotesList as ArrayList<Notes>
     }
 
-    fun setOnClickListener(listener1: AdapterView.OnItemClickListener){
+    fun setOnClickListener(listener1: OnItemClickListener){
         listener = listener1
     }
 
@@ -47,23 +46,23 @@ class NotesAdapter() :
             holder.itemView.cardView.setCardBackgroundColor(Color.parseColor(R.color.colorLightBlack.toString()))
         }
 
-        if (arrList[position].imgPath != null){
-            holder.itemView.imgNote.setImageBitmap(BitmapFactory.decodeFile(arrList[position].imgPath))
-            holder.itemView.imgNote.visibility = View.VISIBLE
-        }else{
-            holder.itemView.imgNote.visibility = View.GONE
-        }
-
-        if (arrList[position].webLink != ""){
-            holder.itemView.tvWebLink.text = arrList[position].webLink
-            holder.itemView.tvWebLink.visibility = View.VISIBLE
-        }else{
-            holder.itemView.tvWebLink.visibility = View.GONE
-        }
-
-        holder.itemView.cardView.setOnClickListener {
-            listener!!.onClicked(arrList[position].id!!)
-        }
+//        if (arrList[position].imgPath != null){
+//            holder.itemView.imgNote.setImageBitmap(BitmapFactory.decodeFile(arrList[position].imgPath))
+//            holder.itemView.imgNote.visibility = View.VISIBLE
+//        }else{
+//            holder.itemView.imgNote.visibility = View.GONE
+//        }
+//
+//        if (arrList[position].webLink != ""){
+//            holder.itemView.tvWebLink.text = arrList[position].webLink
+//            holder.itemView.tvWebLink.visibility = View.VISIBLE
+//        }else{
+//            holder.itemView.tvWebLink.visibility = View.GONE
+//        }
+//
+//        holder.itemView.cardView.setOnClickListener {
+//            listener!!.onClicked(arrList[position].id!!)
+//        }
     }
 
 
@@ -72,8 +71,11 @@ class NotesAdapter() :
     }
 
 
-    interface OnItemClickListener{
+    interface OnItemClickListener : AdapterView.OnItemClickListener {
         fun onClicked(noteId:Int)
+        override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            TODO("Not yet implemented")
+        }
     }
 
 }

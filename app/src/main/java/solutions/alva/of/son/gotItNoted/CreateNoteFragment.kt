@@ -87,19 +87,19 @@ class CreateNoteFragment : BaseFragment(), EasyPermissions.PermissionCallbacks,E
                     CNoteDescription.setText(notes.noteText)
                     if (notes.imgPath != ""){
                         selectedImagePath = notes.imgPath!!
-                        imgNote.setImageBitmap(BitmapFactory.decodeFile(notes.imgPath))
+//                        imgNote.setImageBitmap(BitmapFactory.decodeFile(notes.imgPath))
                         layoutImage.visibility = View.VISIBLE
-                        imgNote.visibility = View.VISIBLE
+//                        imgNote.visibility = View.VISIBLE
                         imgDelete.visibility = View.VISIBLE
                     }else{
                         layoutImage.visibility = View.GONE
-                        imgNote.visibility = View.GONE
+//                        imgNote.visibility = View.GONE
                         imgDelete.visibility = View.GONE
                     }
 
                     if (notes.webLink != ""){
                         webLink = notes.webLink!!
-                        tvWebLink.text = notes.webLink
+//                        tvWebLink.text = notes.webLink
                         layoutWebUrl.visibility = View.VISIBLE
                         etWebLink.setText(notes.webLink)
                         imgUrlDelete.visibility = View.VISIBLE
@@ -156,7 +156,7 @@ class CreateNoteFragment : BaseFragment(), EasyPermissions.PermissionCallbacks,E
 
         btnCancel.setOnClickListener {
             if (noteId != -1){
-                tvWebLink.visibility = View.VISIBLE
+//                tvWebLink.visibility = View.VISIBLE
                 layoutWebUrl.visibility = View.GONE
             }else{
                 layoutWebUrl.visibility = View.GONE
@@ -166,15 +166,15 @@ class CreateNoteFragment : BaseFragment(), EasyPermissions.PermissionCallbacks,E
 
         imgUrlDelete.setOnClickListener {
             webLink = ""
-            tvWebLink.visibility = View.GONE
+//            tvWebLink.visibility = View.GONE
             imgUrlDelete.visibility = View.GONE
             layoutWebUrl.visibility = View.GONE
         }
 
-        tvWebLink.setOnClickListener {
-            var intent = Intent(Intent.ACTION_VIEW, Uri.parse(etWebLink.text.toString()))
-            startActivity(intent)
-        }
+//        tvWebLink.setOnClickListener {
+//            var intent = Intent(Intent.ACTION_VIEW, Uri.parse(etWebLink.text.toString()))
+//            startActivity(intent)
+//        }
 
     }
 
@@ -198,8 +198,8 @@ class CreateNoteFragment : BaseFragment(), EasyPermissions.PermissionCallbacks,E
                 CNoteSubtitle.setText("")
                 CNoteDescription.setText("")
                 layoutImage.visibility = View.GONE
-                imgNote.visibility = View.GONE
-                tvWebLink.visibility = View.GONE
+//                imgNote.visibility = View.GONE
+//                tvWebLink.visibility = View.GONE
                 requireActivity().supportFragmentManager.popBackStack()
             }
         }
@@ -234,8 +234,8 @@ class CreateNoteFragment : BaseFragment(), EasyPermissions.PermissionCallbacks,E
                 CNoteSubtitle.setText("")
                 CNoteDescription.setText("")
                 layoutImage.visibility = View.GONE
-                imgNote.visibility = View.GONE
-                tvWebLink.visibility = View.GONE
+//                imgNote.visibility = View.GONE
+//                tvWebLink.visibility = View.GONE
                 requireActivity().supportFragmentManager.popBackStack()
             }
         }
@@ -257,8 +257,8 @@ class CreateNoteFragment : BaseFragment(), EasyPermissions.PermissionCallbacks,E
             layoutWebUrl.visibility = View.GONE
             etWebLink.isEnabled = false
             webLink = etWebLink.text.toString()
-            tvWebLink.visibility = View.VISIBLE
-            tvWebLink.text = etWebLink.text.toString()
+//            tvWebLink.visibility = View.VISIBLE
+//            tvWebLink.text = etWebLink.text.toString()
         }else{
             Toast.makeText(requireContext(),"Url is not valid",Toast.LENGTH_SHORT).show()
         }
@@ -328,7 +328,7 @@ class CreateNoteFragment : BaseFragment(), EasyPermissions.PermissionCallbacks,E
 
                 else -> {
                     layoutImage.visibility = View.GONE
-                    imgNote.visibility = View.GONE
+//                    imgNote.visibility = View.GONE
                     layoutWebUrl.visibility = View.GONE
                     selectedColor = p1.getStringExtra("selectedColor")!!
                     colorView.setBackgroundColor(Color.parseColor(selectedColor))
@@ -397,8 +397,8 @@ class CreateNoteFragment : BaseFragment(), EasyPermissions.PermissionCallbacks,E
                     try {
                         var inputStream = requireActivity().contentResolver.openInputStream(selectedImageUrl)
                         var bitmap = BitmapFactory.decodeStream(inputStream)
-                        imgNote.setImageBitmap(bitmap)
-                        imgNote.visibility = View.VISIBLE
+//                        imgNote.setImageBitmap(bitmap)
+//                        imgNote.visibility = View.VISIBLE
                         layoutImage.visibility = View.VISIBLE
 
                         selectedImagePath = getPathFromUri(selectedImageUrl)!!

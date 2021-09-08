@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_create_note.*
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.launch
 import solutions.alva.of.son.gotItNoted.adapter.NotesAdapter
 import solutions.alva.of.son.gotItNoted.database.NotesDatabase
