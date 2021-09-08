@@ -2,6 +2,7 @@ package solutions.alva.of.son.gotItNoted.adapter
 
 import android.graphics.BitmapFactory
 import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,8 +35,8 @@ class NotesAdapter() :
         listener = listener1
     }
 
-
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
+
         holder.itemView.tvTitle.text = arrList[position].title
         holder.itemView.tvDescription.text = arrList[position].noteText
         holder.itemView.tvDateTime2.text = arrList[position].dateTime
@@ -69,6 +70,7 @@ class NotesAdapter() :
     class NotesViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
     }
+
 
     interface OnItemClickListener{
         fun onClicked(noteId:Int)

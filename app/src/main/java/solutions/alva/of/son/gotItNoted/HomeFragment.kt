@@ -18,6 +18,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class HomeFragment : BaseFragment() {
+
     var arrNotes = ArrayList<Notes>()
     var notesAdapter: NotesAdapter = NotesAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,7 +68,6 @@ class HomeFragment : BaseFragment() {
         btnCreateNote.setOnClickListener{
             replaceFragment(CreateNoteFragment.newInstance(), false)
         }
-    }
 
     search_view.setOnQueryTextListener( object : SearchView.OnQueryTextListener{
         override fun onQueryTextSubmit(p0: String?): Boolean {
@@ -95,30 +95,30 @@ class HomeFragment : BaseFragment() {
 }
 
 
-private val onClicked = object :NotesAdapter.OnItemClickListener{
-    override fun onClicked(notesId: Int) {
+    private val onClicked = object :NotesAdapter.OnItemClickListener{
+        override fun onClicked(notesId: Int) {
 
 
-        var fragment :Fragment
-        var bundle = Bundle()
-        bundle.putInt("noteId",notesId)
-        fragment = CreateNoteFragment.newInstance()
-        fragment.arguments = bundle
+            var fragment :Fragment
+            var bundle = Bundle()
+            bundle.putInt("noteId",notesId)
+            fragment = CreateNoteFragment.newInstance()
+            fragment.arguments = bundle
 
-        replaceFragment(fragment,false)
+            replaceFragment(fragment,false)
+        }
+
     }
 
-}
 
+    fun replaceFragment(fragment:Fragment, istransition:Boolean){
+        val fragmentTransition = requireActivity().supportFragmentManager.beginTransaction()
 
-fun replaceFragment(fragment:Fragment, istransition:Boolean){
-    val fragmentTransition = activity!!.supportFragmentManager.beginTransaction()
-
-    if (istransition){
-        fragmentTransition.setCustomAnimations(android.R.anim.slide_out_right,android.R.anim.slide_in_left)
+        if (istransition){
+            fragmentTransition.setCustomAnimations(android.R.anim.slide_out_right,android.R.anim.slide_in_left)
+        }
+        fragmentTransition.replace(R.id.frame_layout,fragment).addToBackStack(fragment.javaClass.simpleName).commit()
     }
-    fragmentTransition.replace(R.id.frame_layout,fragment).addToBackStack(fragment.javaClass.simpleName).commit()
-}
 
 
 }
