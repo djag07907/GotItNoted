@@ -9,7 +9,7 @@
     android:orientation="vertical"
     app:behavior_peekHeight="40dp"
     app:layout_behavior="@string/bottom_sheet_behavior"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryDark"
     tools:context=".MainActivity">
 
 
@@ -28,6 +28,7 @@
             android:layout_height="@dimen/_24sdp"
             android:src="@drawable/img_bar"/>
     </FrameLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -188,7 +189,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:gravity="center"
         android:layout_margin="@dimen/_10sdp"
         android:orientation="horizontal">
@@ -228,7 +229,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:gravity="center"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"

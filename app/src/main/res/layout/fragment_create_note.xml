@@ -132,9 +132,11 @@
             android:layout_marginEnd="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_alignParentEnd="true"
-            android:visibility="gone"
+            android:visibility="invisible"
             android:layout_alignParentTop="true"
-            android:src="@drawable/ic_delete" />
+            android:src="@drawable/ic_delete"
+            app:tint="@color/colorWhite"
+            />
 
 
     </RelativeLayout>
@@ -175,7 +177,9 @@
                 android:layout_width="@dimen/_24sdp"
                 android:layout_height="@dimen/_24sdp"
                 android:visibility="gone"
-                android:src="@drawable/ic_cancel" />
+                android:src="@drawable/ic_cancel"
+                app:tint="@color/colorWhite"
+                />
         </LinearLayout>
 
 
@@ -264,6 +268,13 @@
             android:layout_height="@dimen/_24sdp"
             android:layout_gravity="center"
             android:src="@drawable/img_bar" />
+<!--            -->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:text="CLICK HERE TO ATTACH"-->
+<!--                android:textColor="@color/colorWhite"-->
+<!--                />-->
     </FrameLayout>
 
 
