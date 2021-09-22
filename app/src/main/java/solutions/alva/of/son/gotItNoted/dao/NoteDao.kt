@@ -3,7 +3,6 @@ package solutions.alva.of.son.gotItNoted.dao
 import androidx.room.*
 import solutions.alva.of.son.gotItNoted.entities.Notes
 
-
 @Dao
 interface NoteDao {
 
